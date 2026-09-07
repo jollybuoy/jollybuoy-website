@@ -8,13 +8,12 @@ const HeroCanvas = lazy(() => import('../components/HeroCanvas'))
 
 export default function Home() {
   const featured = products.filter((p) => p.featured)
-  const [webgl, setWebgl] = useState(
-    () => typeof window === 'undefined' || !window.matchMedia('(prefers-reduced-motion: reduce)').matches,
-  )
+  const [webgl, setWebgl] = useState(false)
 
   useEffect(() => {
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    setWebgl(!prefersReduced)
+    const desktop = window.matchMedia('(min-width: 981px)').matches
+    setWebgl(!prefersReduced && desktop)
   }, [])
 
   return (
@@ -51,11 +50,10 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div
-            className={webgl ? 'hero-visual live-3d' : 'hero-visual'}
-            role="img"
-            aria-label="JollyBuoy 3D coiled torus"
-          >
+          <div className={webgl ? 'hero-visual live-3d' : 'hero-visual'} role="img" aria-label="JollyBuoy 3D coiled torus">
+            <div className="hero-orbit">
+              <img className="hero-still" src="/images/hero-torus.png" alt="" />
+            </div>
             {webgl ? (
               <div className="hero-canvas">
                 <Suspense fallback={null}>

@@ -298,11 +298,20 @@ h1 {
 .hero-visual {
   position: relative;
   min-height: 520px;
-  background: #07111f url('/images/hero-torus.png') center/cover;
+  background: #07111f;
   border-radius: 32px;
   border: 1px solid var(--line);
   box-shadow: var(--shadow);
   overflow: hidden;
+  perspective: 1100px;
+}
+
+.hero-orbit {
+  height: 100%;
+  min-height: inherit;
+  display: grid;
+  place-items: center;
+  transform-style: preserve-3d;
 }
 
 .hero-visual img.hero-still {
@@ -310,8 +319,6 @@ h1 {
   height: 520px;
   object-fit: cover;
   border-radius: 32px;
-  box-shadow: var(--shadow);
-  border: 1px solid var(--line);
 }
 
 .hero-canvas {
@@ -700,17 +707,28 @@ textarea {
 
   .hero-visual,
   .hero-visual img.hero-still {
-    min-height: 340px;
-    height: 340px;
+    min-height: 280px;
+    height: 280px;
+  }
+
+  .hero-orbit img.hero-still {
+    animation: heroTilt 9s ease-in-out infinite;
+    will-change: transform;
   }
 
   .hero-canvas {
-    mix-blend-mode: normal;
-    opacity: 1;
+    display: none;
   }
 
   .hero-visual.live-3d {
     background-image: none;
+  }
+
+  .glow {
+    width: 160px;
+    height: 160px;
+    right: -20px;
+    bottom: -20px;
   }
 
   .cta-band {
@@ -725,8 +743,19 @@ textarea {
 @media (prefers-reduced-motion: reduce) {
   .marquee-track,
   .btn,
-  .nav {
+  .nav,
+  .hero-orbit img.hero-still {
     animation: none;
     transition: none;
+  }
+}
+
+@keyframes heroTilt {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotateY(-10deg) rotateX(3deg) scale(1.04);
+  }
+  50% {
+    transform: translate3d(0, -8px, 24px) rotateY(10deg) rotateX(-2deg) scale(1.08);
   }
 }
