@@ -66,7 +66,7 @@ export default function Home() {
       <div className="marquee" aria-hidden="true">
         <div className="marquee-track">
           {Array.from({ length: 2 }).flatMap((_, i) =>
-            ['AI products', 'Cloud architecture', 'Support OS', 'Markets', 'Chess academy', 'Custom software', 'Cybersecurity', 'Microsoft 365'].map(
+            ['AI products', 'Cloud architecture', 'Support OS', 'Markets', 'Chess app', 'Custom software', 'Cybersecurity', 'Microsoft 365'].map(
               (item) => (
                 <span key={`${i}-${item}`}>{item}</span>
               ),
@@ -81,8 +81,8 @@ export default function Home() {
             <p className="kicker">Products</p>
             <h2>Software we own, ship, and stand behind.</h2>
             <p className="muted">
-              Ticxnova is the flagship. Around it is a studio of live products — markets and
-              mastery — plus infrastructure we run for clients.
+              Ticxnova is the flagship. Around it are live products in markets and chess, plus
+              infrastructure we run for clients.
             </p>
           </div>
           {featured[0] ? (

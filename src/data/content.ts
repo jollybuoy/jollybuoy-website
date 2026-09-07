@@ -97,27 +97,27 @@ export const products: Product[] = [
   {
     slug: 'ramchess',
     name: 'RAMS Chess',
-    kicker: 'Academy · AI Training',
+    kicker: 'App · Chess',
     tagline: 'Think · Plan · Win.',
     summary:
-      'An AI chess academy that trains the next generation of players with structured thinking, not just puzzles.',
+      'A digital chess app with AI analysis, training paths, and a board built for serious play — not just puzzles.',
     description:
-      'RAMS Chess is our chess academy product. It combines coaching culture with modern software — board intelligence, training paths, and a brand built around Think · Plan · Win. It is how we apply AI to mastery: slow thinking, fast feedback, lasting skill.',
+      'RAMS Chess is our chess app: a digital product for playing, analyzing, and improving. It brings board intelligence, progress tracking, and Think · Plan · Win into one modern interface you can use on the web.',
     url: 'https://ramschess.com',
     image: '/images/product-ramchess.png',
     featured: true,
     status: 'Live',
     highlights: [
-      'Academy-grade training',
+      'Play and train on one board',
       'AI-assisted analysis',
       'Structured learning paths',
-      'Think · Plan · Win culture',
+      'Think · Plan · Win',
     ],
     capabilities: [
-      'Interactive board training',
+      'Interactive chessboard',
       'Progress and ranking',
-      'Coaching-first experience',
-      'Modern dark academy UI',
+      'AI game review',
+      'Modern dark app UI',
     ],
   },
   {

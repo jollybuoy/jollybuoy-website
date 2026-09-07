@@ -38,7 +38,7 @@ export default function Footer() {
           </p>
         </div>
         <div>
-          <h3>Studio</h3>
+          <h3>Address</h3>
           <p>
             {company.address.line1}
             <br />

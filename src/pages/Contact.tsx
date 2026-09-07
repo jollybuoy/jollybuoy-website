@@ -124,7 +124,7 @@ export default function Contact() {
               <div className="icon-row">
                 <MapPin size={18} />
               </div>
-              <h3>Studio</h3>
+              <h3>Address</h3>
               <p className="muted">
                 {company.address.line1}
                 <br />
