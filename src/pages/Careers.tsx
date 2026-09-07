@@ -58,8 +58,10 @@ export default function Careers() {
                 Application submitted. We’ll review it and get back to you within 48 hours.
               </div>
             ) : (
-              <form className="form" name="careers" method="POST" data-netlify="true" onSubmit={onSubmit}>
+              <form className="form" name="careers" method="POST" data-netlify="true" netlify-honeypot="bot-field" onSubmit={onSubmit}>
                 <input type="hidden" name="form-name" value="careers" />
+                <input type="hidden" name="subject" value="Career application — careers@jollybuoy.com" />
+                <input type="hidden" name="recipient" value={company.email.careers} />
                 <p className="skip">
                   <label>
                     Don’t fill this out <input name="bot-field" />
@@ -109,6 +111,7 @@ export default function Careers() {
                   <textarea name="coverLetter" />
                 </label>
                 {error ? <p className="error">{error}</p> : null}
+                <p className="muted">Applications email {company.email.careers}.</p>
                 <button className="btn btn-primary" type="submit" disabled={status === 'sending'}>
                   {status === 'sending' ? 'Sending…' : 'Submit application'}
                 </button>

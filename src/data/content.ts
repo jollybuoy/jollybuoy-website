@@ -69,32 +69,6 @@ export const products: Product[] = [
     ],
   },
   {
-    slug: 'aadayam',
-    name: 'Aadayam',
-    kicker: 'Consumer · Wealth OS',
-    tagline: 'Personal finance, made vivid.',
-    summary:
-      'A personal finance platform that turns everyday money into a clear, living picture of wealth.',
-    description:
-      'Aadayam helps people see, plan, and grow their money. It is our consumer finance product — tracking, insight, and a calm interface designed for real life rather than spreadsheets. Live at aadayam.com and on mobile, it is how we bring JollyBuoy engineering to households, not only enterprises.',
-    url: 'https://aadayam.com',
-    image: '/images/product-aadayam.png',
-    featured: true,
-    status: 'Live',
-    highlights: [
-      'Living view of income and spend',
-      'Mobile-first wealth tracking',
-      'Clear goals, not clutter',
-      'Built for daily use',
-    ],
-    capabilities: [
-      'Personal finance dashboards',
-      'Cross-device experience',
-      'Insight-led money habits',
-      'Privacy-conscious design',
-    ],
-  },
-  {
     slug: 'cedar',
     name: 'Cedar Trade',
     kicker: 'Markets · Analytics Desk',
@@ -173,23 +147,6 @@ export const products: Product[] = [
     ],
   },
 ]
-
-export const studioNotes = [
-  {
-    name: 'MiniShopify',
-    note: 'A compact commerce engine for storefronts that need Shopify-like speed without the bloat.',
-  },
-  {
-    name: 'Krazzzy',
-    note: 'A public toolkit of calculators, converters, and generators at krazzzy.com — our consumer utility lab.',
-    url: 'https://krazzzy.com',
-  },
-  {
-    name: 'Client systems',
-    note: 'Custom builds such as Kaloji Convention Centre — production sites we engineer and host.',
-    url: 'https://kalojiconventioncentre.com',
-  },
-] as const
 
 export const services = [
   {

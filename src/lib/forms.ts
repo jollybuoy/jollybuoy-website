@@ -6,8 +6,8 @@ export async function submitNetlifyForm(
   data.set('form-name', formName)
 
   const response = files
-    ? await fetch('/', { method: 'POST', body: data })
-    : await fetch('/', {
+    ? await fetch('/__forms.html', { method: 'POST', body: data })
+    : await fetch('/__forms.html', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: encodeForm(data),

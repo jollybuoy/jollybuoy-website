@@ -36,8 +36,9 @@ export default function Contact() {
                 Message sent. We’ll get back to you within 24 hours.
               </div>
             ) : (
-              <form className="form" name="contact" method="POST" data-netlify="true" onSubmit={onSubmit}>
+              <form className="form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" onSubmit={onSubmit}>
                 <input type="hidden" name="form-name" value="contact" />
+                <input type="hidden" name="recipient" value={company.email.sales} />
                 <p className="skip">
                   <label>
                     Don’t fill this out <input name="bot-field" />
@@ -85,6 +86,7 @@ export default function Contact() {
                   I’d like to receive updates about new products and services
                 </label>
                 {error ? <p className="error">{error}</p> : null}
+                <p className="muted">This form emails {company.email.sales}.</p>
                 <button className="btn btn-primary" type="submit" disabled={status === 'sending'}>
                   {status === 'sending' ? 'Sending…' : 'Send message'}
                 </button>

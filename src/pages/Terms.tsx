@@ -16,7 +16,7 @@ export default function Terms() {
           <p>
             We provide IT solutions, software products, and related services including cloud
             infrastructure, Microsoft 365, cybersecurity, 24/7 support, custom software, and products
-            such as Ticxnova, Aadayam, Cedar Trade, and RAMS Chess.
+            such as Ticxnova, Cedar Trade, and RAMS Chess.
           </p>
           <h2>3. Accounts</h2>
           <p>

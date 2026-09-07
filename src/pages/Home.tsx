@@ -25,7 +25,7 @@ export default function Home() {
             <h1>Build what the next decade will run on.</h1>
             <p className="lead">
               We design AI products and future-ready infrastructure — from Ticxnova to markets,
-              wealth, and custom systems. {company.tagline}.
+              training, and custom systems. {company.tagline}.
             </p>
             <div className="hero-actions">
               <Link className="btn btn-primary" to="/products">
@@ -66,7 +66,7 @@ export default function Home() {
       <div className="marquee" aria-hidden="true">
         <div className="marquee-track">
           {Array.from({ length: 2 }).flatMap((_, i) =>
-            ['AI products', 'Cloud architecture', 'Support OS', 'Markets', 'Wealth tech', 'Custom software', 'Cybersecurity', 'Microsoft 365'].map(
+            ['AI products', 'Cloud architecture', 'Support OS', 'Markets', 'Chess academy', 'Custom software', 'Cybersecurity', 'Microsoft 365'].map(
               (item) => (
                 <span key={`${i}-${item}`}>{item}</span>
               ),
@@ -81,8 +81,8 @@ export default function Home() {
             <p className="kicker">Products</p>
             <h2>Software we own, ship, and stand behind.</h2>
             <p className="muted">
-              Ticxnova is the flagship. Around it is a studio of live products — finance, markets,
-              and mastery — plus systems we build for clients.
+              Ticxnova is the flagship. Around it is a studio of live products — markets and
+              mastery — plus infrastructure we run for clients.
             </p>
           </div>
           {featured[0] ? (
@@ -93,11 +93,6 @@ export default function Home() {
                   <ProductCard key={product.slug} product={product} />
                 ))}
               </div>
-            </div>
-          ) : null}
-          {featured[3] ? (
-            <div style={{ marginTop: 18 }}>
-              <ProductCard product={featured[3]} />
             </div>
           ) : null}
           <div className="hero-actions">
