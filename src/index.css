@@ -704,6 +704,15 @@ textarea {
     height: 340px;
   }
 
+  .hero-canvas {
+    mix-blend-mode: normal;
+    opacity: 1;
+  }
+
+  .hero-visual.live-3d {
+    background-image: none;
+  }
+
   .cta-band {
     padding: 32px 24px;
   }
