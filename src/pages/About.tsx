@@ -7,25 +7,26 @@ export default function About() {
     <>
       <PageHero
         kicker="About"
-        title="Pioneering the next surface of technology."
-        body="JollyBuoy Tech is a startup studio that builds products and infrastructure with current AI — and designs them to still matter when the next generation arrives."
+        title="A technology company that also grows the work."
+        body="JollyBuoy Tech builds products and infrastructure with current AI — and runs digital marketing so those systems actually reach the market."
       />
       <section>
         <div className="shell split">
-          <img src="/images/about-studio.png" alt="JollyBuoy studio" />
+          <img src="/images/about-studio.png" alt="JollyBuoy workspace" />
           <div>
             <h2>Mission</h2>
             <p className="muted">
-              To give businesses and people technology that is intelligent, affordable, and actually
-              usable. We believe the right system — implemented with care — can change how a company
-              works.
+              To give businesses technology that is intelligent, affordable, and usable — then help
+              them find customers for it. Software without demand is a demo. Demand without a stack
+              is noise. We do both.
             </p>
             <h2>Vision</h2>
             <p className="muted">
-              To be the technology partner growing teams trust: product-quality software, honest
-              service, and a future-facing stack. {company.legal} is based in Toronto, with 24/7
-              remote support for clients everywhere we operate.
+              To be the partner growing teams trust for product, infrastructure, and growth.
+              {` ${company.legal} `}
+              is based in Toronto, with 24/7 remote support for clients everywhere we operate.
             </p>
+            <p className="muted">{company.line}</p>
           </div>
         </div>
       </section>
@@ -50,8 +51,8 @@ export default function About() {
           {[
             ['Startup agility', 'Fast, focused, and built around what you actually need.'],
             ['Current AI', 'Models, agents, and automation in production — not in a pitch.'],
+            ['Growth practice', 'Ads, SEO, and campaigns measured like software.'],
             ['24/7 support', 'Your systems do not keep office hours. Neither do we.'],
-            ['Affordable excellence', 'Transparent pricing. Maximum value. No theater.'],
           ].map(([title, body]) => (
             <article className="card" key={title} style={{ padding: 24 }}>
               <h3>{title}</h3>
@@ -63,13 +64,13 @@ export default function About() {
       <section>
         <div className="shell">
           <div className="cta-band">
-            <h2>Ready to build with us?</h2>
+            <h2>Ready to build and grow with us?</h2>
             <div className="hero-actions">
               <Link className="btn btn-primary" to="/contact">
                 Get started
               </Link>
-              <Link className="btn btn-ghost" to="/products">
-                Our products
+              <Link className="btn btn-ghost" to="/services">
+                Our services
               </Link>
             </div>
           </div>

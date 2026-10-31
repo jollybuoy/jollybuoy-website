@@ -13,6 +13,8 @@ export default function Footer() {
             {company.legal}
             <br />
             {company.tagline}
+            <br />
+            {company.line}
           </p>
         </div>
         <div>

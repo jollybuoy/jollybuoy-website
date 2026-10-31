@@ -4,7 +4,7 @@ import Navbar from './Navbar'
 import Footer from './Footer'
 
 const titles: Record<string, string> = {
-  '/': 'JollyBuoy Tech — Ideas · Code · Impact',
+  '/': 'JollyBuoy Tech — Ideas · Solutions · Growth · Impact',
   '/products': 'Products — JollyBuoy Tech',
   '/services': 'Services — JollyBuoy Tech',
   '/about': 'About — JollyBuoy Tech',

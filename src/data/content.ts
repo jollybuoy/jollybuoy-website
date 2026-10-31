@@ -1,7 +1,8 @@
 export const company = {
   name: 'JollyBuoy Tech',
   legal: 'Jollybuoy Technology Services Inc.',
-  tagline: 'Ideas · Code · Impact',
+  tagline: 'Ideas · Solutions · Growth · Impact',
+  line: 'IT Solutions · Digital Marketing · Software · Automation',
   email: {
     info: 'info@jollybuoy.com',
     sales: 'sales@jollybuoy.com',
@@ -19,8 +20,8 @@ export const company = {
 } as const
 
 export const navLinks = [
-  { to: '/products', label: 'Products' },
   { to: '/services', label: 'Services' },
+  { to: '/products', label: 'Products' },
   { to: '/about', label: 'About' },
   { to: '/careers', label: 'Careers' },
   { to: '/contact', label: 'Contact' },
@@ -123,10 +124,10 @@ export const products: Product[] = [
   {
     slug: 'bizsuite',
     name: 'JollyBuoy BizSuite',
-    kicker: 'Studio · Operations',
+    kicker: 'Operations · Software',
     tagline: 'Modular software for running the business.',
     summary:
-      'A studio suite of connected business modules — CRM, operations, and internal tooling we use and extend for clients.',
+      'A suite of connected business modules — CRM, operations, and internal tooling we use and extend for clients.',
     description:
       'BizSuite is our internal-grade operations stack, evolved into a product direction. It is modular by design: CRM, billing-adjacent workflows, and day-to-day operations software that we shape for real companies. Not every module is public yet — the suite is how we ship practical software alongside our flagship products.',
     url: '/contact',
@@ -148,86 +149,104 @@ export const products: Product[] = [
   },
 ]
 
-export const services = [
+export type Service = {
+  slug: string
+  name: string
+  kicker: string
+  summary: string
+  description: string
+  image: string
+  featured: boolean
+  points: string[]
+}
+
+export const services: Service[] = [
   {
-    slug: 'cloud',
-    name: 'Cloud architecture',
+    slug: 'digital-marketing',
+    name: 'Digital Marketing & Advertising',
+    kicker: 'Growth · Highlighted',
     summary:
-      'AWS, Azure, and Google Cloud designed for reliability, cost, and the next five years of growth.',
+      'Campaigns, ads, and brand systems that turn attention into pipeline — measured, not guessed.',
+    description:
+      'Digital marketing is a core JollyBuoy line, not an add-on. We plan, launch, and optimize advertising and growth programs the same way we ship software: with systems, tracking, and a team that stays on the account. From paid media to SEO and content, we build the engine that makes your product visible.',
+    image: '/images/service-marketing.png',
+    featured: true,
+    points: [
+      'Google, Meta, and LinkedIn advertising',
+      'SEO, content, and landing pages',
+      'Social campaigns and brand systems',
+      'Analytics, conversion tracking, and reporting',
+    ],
+  },
+  {
+    slug: 'infrastructure',
+    name: 'IT Infrastructure & Technology Services',
+    kicker: 'Cloud · Support · Security',
+    summary:
+      'Cloud, Microsoft 365, cybersecurity, backups, and 24/7 support — the stack companies actually run on.',
+    description:
+      'We design, migrate, and operate infrastructure across AWS, Azure, and Google Cloud. Email and Microsoft 365, layered security, data protection, and round-the-clock support sit in the same practice — so your systems stay available, compliant, and affordable.',
     image: '/images/services-cloud.png',
+    featured: false,
     points: [
-      'Architecture and migration',
-      'Security and compliance baselines',
-      'Cost optimization',
-      'Production hardening',
+      'Cloud architecture, migration, and cost control',
+      'Email and Microsoft 365 deployment',
+      'Cybersecurity, endpoints, and compliance',
+      '24/7 monitoring, backups, and recovery',
     ],
   },
   {
-    slug: 'microsoft',
-    name: 'Email & Microsoft 365',
+    slug: 'web-mobile',
+    name: 'Website & Mobile App Development',
+    kicker: 'Web · iOS · Android',
     summary:
-      'Enterprise-grade mail, identity, and collaboration — migrated, secured, and supported.',
-    image: '/images/services-support.png',
+      'Sites and apps that look current, load fast, and are built to grow with the business.',
+    description:
+      'We design and ship websites, web applications, and mobile apps for iOS and Android. The same product standard we use on Ticxnova and RAMS Chess — modern interfaces, solid engineering, and hosting that does not fall over.',
+    image: '/images/service-webapp.png',
+    featured: false,
     points: [
-      'Mailbox migration',
-      'Full Microsoft 365 deployment',
-      'Security and compliance',
-      'User training',
+      'Marketing sites and web applications',
+      'iOS and Android apps',
+      'UX, performance, and accessibility',
+      'Hosting, launch, and ongoing support',
     ],
   },
   {
-    slug: 'support',
-    name: '24/7 intelligent support',
+    slug: 'ai-automation',
+    name: 'AI Solutions & Automation',
+    kicker: 'AI · Workflows',
     summary:
-      'Round-the-clock monitoring and human experts, with AI in the loop so issues are caught early.',
-    image: '/images/services-support.png',
+      'Models, agents, and automations in production — where they cut work, not where they make a slide.',
+    description:
+      'We put AI into the work: ticket intelligence, document flow, operations, and custom agents. Automation is designed around your process, then monitored like any other production system.',
+    image: '/images/service-ai.png',
+    featured: false,
     points: [
-      'Continuous monitoring',
-      'Remote diagnostics',
-      'Preventive maintenance',
-      'Emergency escalation',
+      'AI assistants and workflow agents',
+      'Process automation and integrations',
+      'Support, ops, and knowledge systems',
+      'Governance, evaluation, and rollout',
     ],
   },
   {
-    slug: 'security',
-    name: 'Cybersecurity',
+    slug: 'custom-software',
+    name: 'Custom Software Development',
+    kicker: 'Build · Ship · Own',
     summary:
-      'Layered defense for modern stacks — assessments, endpoints, awareness, and compliance.',
-    image: '/images/services-security.png',
+      'SaaS platforms, internal tools, and product engineering — built to your workflow, not a template.',
+    description:
+      'When off-the-shelf is not enough, we design and build custom software. CRM-adjacent tools, portals, APIs, and full products — with the same craft we use on software we own.',
+    image: '/images/service-software.png',
+    featured: false,
     points: [
-      'Vulnerability assessments',
-      'Firewall and endpoint protection',
-      'Security awareness training',
-      'Regulatory guidance',
+      'SaaS and internal platforms',
+      'APIs, integrations, and data layers',
+      'Product design with engineering',
+      'Maintenance, scaling, and handoff',
     ],
   },
-  {
-    slug: 'data',
-    name: 'Data protection & recovery',
-    summary:
-      'Automated backups and disaster recovery so critical systems can return in hours, not weeks.',
-    image: '/images/services-cloud.png',
-    points: [
-      'Automated backup systems',
-      'Disaster recovery planning',
-      'Rapid restoration',
-      'Compliance reporting',
-    ],
-  },
-  {
-    slug: 'consulting',
-    name: 'Strategic IT & AI consulting',
-    summary:
-      'Roadmaps that mix infrastructure, custom software, and AI — so technology actually moves the business.',
-    image: '/images/about-studio.png',
-    points: [
-      'Technology assessments',
-      'Digital transformation plans',
-      'Vendor evaluation',
-      'Custom AI and software builds',
-    ],
-  },
-] as const
+]
 
 export const values = [
   {
@@ -255,34 +274,34 @@ export const faqs = [
   },
   {
     q: 'Do you offer custom software development?',
-    a: 'Yes. We build web applications, mobile apps, SaaS platforms, and AI systems tailored to your workflows — the same discipline we use on Ticxnova and our other products.',
+    a: 'Yes. We build websites, mobile apps, SaaS platforms, and AI systems tailored to your workflows — the same discipline we use on Ticxnova and our other products.',
+  },
+  {
+    q: 'Do you run digital marketing and advertising?',
+    a: 'Yes. Digital marketing is a core service: paid ads, SEO, content, social, and conversion tracking. We treat campaigns like products — measured, iterated, and owned.',
   },
   {
     q: 'What industries do you serve?',
-    a: 'We work across professional services, finance, education, e-commerce, manufacturing, and growing technology companies. Our stack adapts; the standard of engineering does not.',
+    a: 'We work across professional services, finance, education, e-commerce, manufacturing, and growing technology companies. Our stack adapts; the standard of work does not.',
   },
   {
     q: 'Can I try your products before purchasing?',
     a: 'Yes. Contact us for a demo of Ticxnova or a walkthrough of any live product. We will map the trial to your actual use case.',
   },
   {
-    q: 'Do you provide training for your software?',
-    a: 'Yes. Onboarding sessions, documentation, and ongoing support are part of how we ship — not an add-on afterthought.',
-  },
-  {
     q: 'What are your pricing models?',
-    a: 'We offer monthly subscriptions, annual plans, and custom enterprise packages. Reach us for pricing shaped to your scope.',
+    a: 'We offer monthly subscriptions, campaign retainers, annual plans, and custom enterprise packages. Reach us for pricing shaped to your scope.',
   },
 ] as const
 
 export const careerPerks = [
   {
     name: 'Innovation-driven culture',
-    body: 'Work on live products and client systems using current AI, cloud, and interface craft.',
+    body: 'Work on live products, campaigns, and client systems using current AI, cloud, and growth craft.',
   },
   {
     name: 'Continuous learning',
-    body: 'Training, certifications, and time to go deep on the technologies we actually ship.',
+    body: 'Training, certifications, and time to go deep on the technologies and channels we actually ship.',
   },
   {
     name: 'Work-life balance',
@@ -298,7 +317,7 @@ export const careerPerks = [
   },
   {
     name: 'Career growth',
-    body: 'Clear paths, mentorship, and the chance to own products — not tickets.',
+    body: 'Clear paths, mentorship, and the chance to own products and accounts — not tickets.',
   },
 ] as const
 
@@ -306,17 +325,33 @@ export const positions = [
   'Full Stack Developer',
   'DevOps Engineer',
   'UI/UX Designer',
+  'Digital Marketing Specialist',
+  'Growth / Advertising',
   'Customer Success Manager',
   'Sales Representative',
-  'Marketing Specialist',
   'Other',
 ] as const
 
 export const contactSubjects = [
   'General Inquiry',
+  'Digital Marketing & Advertising',
+  'IT Infrastructure',
+  'Website or Mobile App',
+  'AI & Automation',
+  'Custom Software',
   'Product Information',
-  'IT Services',
   'Technical Support',
   'Partnership Opportunity',
   'Request Demo',
+] as const
+
+export const marqueeItems = [
+  'Digital marketing',
+  'Paid advertising',
+  'IT infrastructure',
+  'Web & mobile apps',
+  'AI automation',
+  'Custom software',
+  'Cloud & Microsoft 365',
+  'Cybersecurity',
 ] as const

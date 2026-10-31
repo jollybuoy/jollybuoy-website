@@ -9,8 +9,8 @@ export default function Products() {
   return (
     <>
       <PageHero
-        kicker="Product house"
-        title="Live products. A working studio."
+        kicker="Products"
+        title="Live products we own and ship."
         body="Ticxnova leads. Cedar Trade and RAMS Chess are live. BizSuite is the operations layer we shape next."
       />
       <section>
@@ -26,7 +26,7 @@ export default function Products() {
         <section>
           <div className="shell">
             <div className="section-head">
-              <p className="kicker">Studio</p>
+              <p className="kicker">In development</p>
               <h2>Systems we are shaping next.</h2>
             </div>
             <div className="grid-2">

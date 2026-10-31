@@ -26,7 +26,7 @@ export default function Contact() {
       <PageHero
         kicker="Contact"
         title="Let’s start a conversation."
-        body="Ready to transform your stack with products and infrastructure that actually ship? We reply within 24 hours."
+        body="Stack, product, campaign, or all three. We reply within 24 hours."
       />
       <section>
         <div className="shell split">

@@ -1,13 +1,15 @@
 import { lazy, Suspense, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowUpRight, Cpu, Shield, Sparkles } from 'lucide-react'
+import { ArrowUpRight, Cpu, Megaphone, Shield } from 'lucide-react'
 import ProductCard from '../components/ProductCard'
-import { products, services, company } from '../data/content'
+import { products, services, company, marqueeItems } from '../data/content'
 
 const HeroCanvas = lazy(() => import('../components/HeroCanvas'))
 
 export default function Home() {
   const featured = products.filter((p) => p.featured)
+  const highlight = services.find((s) => s.featured)
+  const rest = services.filter((s) => !s.featured)
   const [webgl, setWebgl] = useState(false)
 
   useEffect(() => {
@@ -22,27 +24,28 @@ export default function Home() {
         <div className="shell hero-grid">
           <div>
             <p className="kicker">JollyBuoy Technology Services</p>
-            <h1>Build what the next decade will run on.</h1>
+            <h1>Technology that ships. Marketing that grows.</h1>
             <p className="lead">
-              We design AI products and future-ready infrastructure — from Ticxnova to markets,
-              training, and custom systems. {company.tagline}.
+              IT infrastructure, software, AI, and digital marketing — built as one practice. We
+              engineer the stack and we put it in front of the market. {company.tagline}.
             </p>
+            <p className="muted">{company.line}</p>
             <div className="hero-actions">
-              <Link className="btn btn-primary" to="/products">
-                See the products
+              <Link className="btn btn-primary" to="/services">
+                Explore services
               </Link>
-              <Link className="btn btn-ghost" to="/contact">
-                Talk with us
+              <Link className="btn btn-ghost" to="/products">
+                See the products
               </Link>
             </div>
             <div className="hero-meta">
               <div>
-                <strong>24/7</strong>
-                Expert support
+                <strong>5</strong>
+                Service lines
               </div>
               <div>
-                <strong>AI-native</strong>
-                Product studio
+                <strong>24/7</strong>
+                Expert support
               </div>
               <div>
                 <strong>Canada</strong>
@@ -69,11 +72,9 @@ export default function Home() {
       <div className="marquee" aria-hidden="true">
         <div className="marquee-track">
           {Array.from({ length: 2 }).flatMap((_, i) =>
-            ['AI products', 'Cloud architecture', 'Support OS', 'Markets', 'Chess app', 'Custom software', 'Cybersecurity', 'Microsoft 365'].map(
-              (item) => (
-                <span key={`${i}-${item}`}>{item}</span>
-              ),
-            ),
+            marqueeItems.map((item) => (
+              <span key={`${i}-${item}`}>{item}</span>
+            )),
           )}
         </div>
       </div>
@@ -81,11 +82,59 @@ export default function Home() {
       <section>
         <div className="shell">
           <div className="section-head">
+            <p className="kicker">Services</p>
+            <h2>Five lines. One standard.</h2>
+            <p className="muted">
+              Infrastructure, apps, AI, custom software, and digital marketing — all of them on the
+              table. Growth is highlighted because demand is there. The rest of the practice is not
+              smaller for it.
+            </p>
+          </div>
+
+          {highlight ? (
+            <article className="card feature-service">
+              <img src={highlight.image} alt="" />
+              <div className="card-body">
+                <span className="chip">{highlight.kicker}</span>
+                <h3>{highlight.name}</h3>
+                <p className="muted">{highlight.description}</p>
+                <ul className="list">
+                  {highlight.points.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
+                <Link className="btn btn-primary" to="/services#digital-marketing">
+                  Digital marketing details <ArrowUpRight size={16} />
+                </Link>
+              </div>
+            </article>
+          ) : null}
+
+          <div className="grid-2" style={{ marginTop: 18 }}>
+            {rest.map((service) => (
+              <article className="card service-card" key={service.slug}>
+                <img src={service.image} alt="" />
+                <h3>{service.name}</h3>
+                <p className="muted">{service.summary}</p>
+              </article>
+            ))}
+          </div>
+          <div className="hero-actions">
+            <Link className="btn btn-ghost" to="/services">
+              Full service list
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div className="shell">
+          <div className="section-head">
             <p className="kicker">Products</p>
             <h2>Software we own, ship, and stand behind.</h2>
             <p className="muted">
-              Ticxnova is the flagship. Around it are live products in markets and chess, plus
-              infrastructure we run for clients.
+              Ticxnova is the flagship. Cedar Trade and RAMS Chess are live. BizSuite is the
+              operations layer we shape next.
             </p>
           </div>
           {featured[0] ? (
@@ -100,34 +149,7 @@ export default function Home() {
           ) : null}
           <div className="hero-actions">
             <Link className="btn btn-ghost" to="/products">
-              Full product house <ArrowUpRight size={16} />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <div className="shell">
-          <div className="section-head">
-            <p className="kicker">Services</p>
-            <h2>Infrastructure that feels like product.</h2>
-            <p className="muted">
-              Cloud, security, Microsoft 365, and 24/7 support — engineered with the same standard as
-              our own platforms.
-            </p>
-          </div>
-          <div className="grid-3">
-            {services.slice(0, 3).map((service) => (
-              <article className="card service-card" key={service.slug}>
-                <img src={service.image} alt="" />
-                <h3>{service.name}</h3>
-                <p className="muted">{service.summary}</p>
-              </article>
-            ))}
-          </div>
-          <div className="hero-actions">
-            <Link className="btn btn-primary" to="/services">
-              Explore services
+              All products <ArrowUpRight size={16} />
             </Link>
           </div>
         </div>
@@ -136,20 +158,20 @@ export default function Home() {
       <section>
         <div className="shell split">
           <div>
-            <p className="kicker">Studio</p>
-            <h2>A technology company, not a template shop.</h2>
+            <p className="kicker">Company</p>
+            <h2>Build it. Grow it. Keep it running.</h2>
             <p className="muted">
-              JollyBuoy Tech is a Toronto-based product and infrastructure studio. We combine AI,
-              cloud, and custom software so businesses can move with the current generation of
-              tools — and be ready for the next.
+              JollyBuoy Tech is a Toronto company for product, infrastructure, and demand. AI and
+              automation sit in the middle. Digital marketing sits beside them — not as a side
+              hustle, as a service line.
             </p>
             <div className="grid-3" style={{ marginTop: 28 }}>
               <div>
                 <div className="icon-row">
-                  <Sparkles size={18} />
+                  <Megaphone size={18} />
                 </div>
-                <h3>Innovation first</h3>
-                <p className="muted">Breakthrough systems, not recycled decks.</p>
+                <h3>Growth on purpose</h3>
+                <p className="muted">Ads, SEO, and campaigns with the same rigor as code.</p>
               </div>
               <div>
                 <div className="icon-row">
@@ -162,8 +184,8 @@ export default function Home() {
                 <div className="icon-row">
                   <Shield size={18} />
                 </div>
-                <h3>Client-focused</h3>
-                <p className="muted">Affordable excellence. Real support.</p>
+                <h3>Always on</h3>
+                <p className="muted">Cloud, security, and 24/7 support.</p>
               </div>
             </div>
             <div className="hero-actions">
@@ -172,7 +194,7 @@ export default function Home() {
               </Link>
             </div>
           </div>
-          <img src="/images/about-studio.png" alt="JollyBuoy future studio" />
+          <img src="/images/about-studio.png" alt="JollyBuoy workspace" />
         </div>
       </section>
 
@@ -180,17 +202,16 @@ export default function Home() {
         <div className="shell">
           <div className="cta-band">
             <p className="kicker">Ready</p>
-            <h2>Start a conversation. We’ll build from there.</h2>
-            <p className="muted" style={{ maxWidth: 520 }}>
-              Demos, architecture reviews, or a custom build — same team, same contacts, faster
-              surface.
+            <h2>Need a stack, a campaign, or both?</h2>
+            <p className="muted" style={{ maxWidth: 540 }}>
+              Demos, architecture, custom software, or a growth plan — same team, same contacts.
             </p>
             <div className="hero-actions">
               <Link className="btn btn-primary" to="/contact">
                 Get started
               </Link>
-              <a className="btn btn-ghost" href={`mailto:${company.email.info}`}>
-                {company.email.info}
+              <a className="btn btn-ghost" href={`mailto:${company.email.sales}`}>
+                {company.email.sales}
               </a>
             </div>
           </div>

@@ -25,7 +25,7 @@ export default function Careers() {
       <PageHero
         kicker="Careers"
         title="Build with a team that ships."
-        body="Join a startup of operators and builders. Flexible work, live products, and work that reaches production."
+        body="Join a team of operators, builders, and marketers. Flexible work, live products, campaigns that ship, and work that reaches production."
       />
       <section>
         <div className="shell grid-3">

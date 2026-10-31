@@ -4,7 +4,7 @@ import { company } from '../data/content'
 export default function Terms() {
   return (
     <>
-      <PageHero kicker="Legal" title="Terms of Service" body="Last updated: September 2026" />
+      <PageHero kicker="Legal" title="Terms of Service" body="Last updated: October 2026" />
       <section>
         <div className="shell prose">
           <h2>1. Acceptance</h2>
@@ -14,9 +14,9 @@ export default function Terms() {
           </p>
           <h2>2. Description of service</h2>
           <p>
-            We provide IT solutions, software products, and related services including cloud
-            infrastructure, Microsoft 365, cybersecurity, 24/7 support, custom software, and products
-            such as Ticxnova, Cedar Trade, and RAMS Chess.
+            We provide IT infrastructure, website and mobile app development, AI and automation,
+            custom software, digital marketing and advertising, and products such as Ticxnova, Cedar
+            Trade, and RAMS Chess.
           </p>
           <h2>3. Accounts</h2>
           <p>
