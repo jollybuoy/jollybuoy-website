@@ -1,12 +1,22 @@
-import { useState, type FormEvent } from 'react'
+import { useMemo, useState, type FormEvent } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { Mail, MapPin, Globe } from 'lucide-react'
 import PageHero from '../components/PageHero'
-import { company, contactSubjects, faqs } from '../data/content'
+import { company, contactSubjects, faqs, subjectAliases } from '../data/content'
 import { submitNetlifyForm } from '../lib/forms'
 
+function resolveSubject(raw: string | null) {
+  if (!raw) return ''
+  const decoded = decodeURIComponent(raw).trim()
+  const aliased = subjectAliases[decoded] ?? decoded
+  return (contactSubjects as readonly string[]).includes(aliased) ? aliased : ''
+}
+
 export default function Contact() {
+  const [params] = useSearchParams()
   const [status, setStatus] = useState<'idle' | 'sending' | 'ok' | 'error'>('idle')
   const [error, setError] = useState('')
+  const subjectValue = useMemo(() => resolveSubject(params.get('subject')), [params])
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -26,7 +36,7 @@ export default function Contact() {
       <PageHero
         kicker="Contact"
         title="Let’s start a conversation."
-        body="Stack, product, campaign, or all three. We reply within 24 hours."
+        body={`Stack, product, campaign, or all three. ${company.location}. We reply within 24 hours.`}
       />
       <section>
         <div className="shell split">
@@ -68,7 +78,7 @@ export default function Contact() {
                 </label>
                 <label>
                   Subject *
-                  <select name="subject" required defaultValue="">
+                  <select name="subject" required defaultValue={subjectValue} key={subjectValue}>
                     <option value="" disabled>
                       Select a subject
                     </option>
@@ -132,6 +142,7 @@ export default function Contact() {
                 <br />
                 {company.address.country}
               </p>
+              <p className="muted">{company.location}</p>
               <p className="muted">24/7 remote support. Emergency response under 1 hour for enterprise.</p>
             </article>
           </div>

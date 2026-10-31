@@ -15,6 +15,8 @@ export default function Footer() {
             {company.tagline}
             <br />
             {company.line}
+            <br />
+            {company.location}
           </p>
         </div>
         <div>

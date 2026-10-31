@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import PageHero from '../components/PageHero'
-import { services } from '../data/content'
+import { packages, services } from '../data/content'
 
 export default function Services() {
   const highlight = services.find((s) => s.featured)
@@ -28,14 +28,47 @@ export default function Services() {
                     <li key={point}>{point}</li>
                   ))}
                 </ul>
-                <Link className="btn btn-primary" to="/contact">
-                  Start a growth conversation
+                <Link className="btn btn-primary" to="/contact?subject=Campaign%20review">
+                  Request a campaign review
                 </Link>
               </div>
             </article>
           </div>
         </section>
       ) : null}
+
+      <section>
+        <div className="shell">
+          <div className="section-head">
+            <p className="kicker">Marketing packages</p>
+            <h2>Pick a starting shape. Scope follows the brief.</h2>
+            <p className="muted">
+              No invented retainers on the page. Launch, Grow, or Media — we price after we see the
+              market, the offer, and the stack.
+            </p>
+          </div>
+          <div className="grid-3">
+            {packages.map((pack) => (
+              <article className={pack.featured ? 'card package featured' : 'card package'} key={pack.name}>
+                {pack.featured ? <span className="chip">Most used</span> : null}
+                <p className="kicker">{pack.cadence}</p>
+                <h3>{pack.name}</h3>
+                <p className="muted">{pack.summary}</p>
+                <ul className="list">
+                  {pack.points.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
+          <div className="hero-actions">
+            <Link className="btn btn-primary" to="/contact?subject=Campaign%20review">
+              Request a campaign review
+            </Link>
+          </div>
+        </div>
+      </section>
 
       <section>
         <div className="shell">

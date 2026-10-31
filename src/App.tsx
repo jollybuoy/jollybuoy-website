@@ -5,6 +5,7 @@ import Products from './pages/Products'
 import ProductDetail from './pages/ProductDetail'
 import Services from './pages/Services'
 import About from './pages/About'
+import Work from './pages/Work'
 import Careers from './pages/Careers'
 import Contact from './pages/Contact'
 import Privacy from './pages/Privacy'
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
       { path: 'products', element: <Products /> },
       { path: 'products/:slug', element: <ProductDetail /> },
       { path: 'services', element: <Services /> },
+      { path: 'work', element: <Work /> },
       { path: 'about', element: <About /> },
       { path: 'careers', element: <Careers /> },
       { path: 'contact', element: <Contact /> },

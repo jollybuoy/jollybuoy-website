@@ -15,6 +15,7 @@ export const company = {
     line2: 'North York, ON M2J 0H2',
     country: 'Canada',
   },
+  location: 'Toronto · serving Canada and remote',
   linkedin: 'https://www.linkedin.com/company/jollybuoy-tech',
   linkedinHandle: '@jollybuoy-tech',
 } as const
@@ -22,6 +23,7 @@ export const company = {
 export const navLinks = [
   { to: '/services', label: 'Services' },
   { to: '/products', label: 'Products' },
+  { to: '/work', label: 'Work' },
   { to: '/about', label: 'About' },
   { to: '/careers', label: 'Careers' },
   { to: '/contact', label: 'Contact' },
@@ -333,8 +335,9 @@ export const positions = [
 ] as const
 
 export const contactSubjects = [
-  'General Inquiry',
+  'Campaign review',
   'Digital Marketing & Advertising',
+  'General Inquiry',
   'IT Infrastructure',
   'Website or Mobile App',
   'AI & Automation',
@@ -343,6 +346,101 @@ export const contactSubjects = [
   'Technical Support',
   'Partnership Opportunity',
   'Request Demo',
+] as const
+
+export const subjectAliases: Record<string, string> = {
+  'campaign-review': 'Campaign review',
+  'digital-marketing': 'Digital Marketing & Advertising',
+  marketing: 'Digital Marketing & Advertising',
+}
+
+export type WorkItem = {
+  slug: string
+  name: string
+  kind: string
+  summary: string
+  story: string
+  image: string
+  href: string
+  live?: string
+}
+
+export const work: WorkItem[] = [
+  {
+    slug: 'ticxnova',
+    name: 'Ticxnova',
+    kind: 'Product we own · live',
+    summary:
+      'AI-native support OS we designed, built, and operate. The flagship of the company — not a case-study mockup.',
+    story:
+      'Ticxnova is the product we stand behind in production: omnichannel tickets, AI triage, and workflows for teams that cannot wait on a queue. We ship it, host it, and keep it running.',
+    image: '/images/product-ticxnova.png',
+    href: '/products/ticxnova',
+    live: 'https://ticxnova.com',
+  },
+  {
+    slug: 'cedar',
+    name: 'Cedar Trade',
+    kind: 'Product we own · live',
+    summary:
+      'A Canadian CDR analytics desk with live quotes, portfolios, and paper trading — a real markets product, not a landing-page demo.',
+    story:
+      'Cedar Trade is the public face of trading systems we have been building inside JollyBuoy. It is live for operators who need a cinematic desk, not a spreadsheet with a skin.',
+    image: '/images/product-cedar.png',
+    href: '/products/cedar',
+    live: 'https://trade-cedar.com',
+  },
+  {
+    slug: 'ramchess',
+    name: 'RAMS Chess',
+    kind: 'Product we own · live',
+    summary:
+      'A chess app for play, analysis, and training. Digital product — not an academy, not a brochure.',
+    story:
+      'RAMS Chess is a board, AI review, and Think · Plan · Win in one interface. We built it as a product people can actually use, then put it on the public web.',
+    image: '/images/product-ramchess.png',
+    href: '/products/ramchess',
+    live: 'https://ramschess.com',
+  },
+]
+
+export const packages = [
+  {
+    name: 'Launch',
+    cadence: 'Project',
+    featured: false,
+    summary: 'Stand up tracking, offer, and a first campaign so the channel is real — not a slide.',
+    points: [
+      'Site, analytics, and conversion audit',
+      'Offer and landing structure',
+      'Paid plus organic 30-day plan',
+      'Creative and channel setup',
+    ],
+  },
+  {
+    name: 'Grow',
+    cadence: 'Monthly retainer',
+    featured: true,
+    summary: 'Ongoing ads, SEO, and creative with reporting you can run a business on.',
+    points: [
+      'Google, Meta, and LinkedIn media',
+      'SEO, content, and landing iteration',
+      'Creative production and tests',
+      'Weekly notes, monthly numbers',
+    ],
+  },
+  {
+    name: 'Media',
+    cadence: 'Ads-led',
+    featured: false,
+    summary: 'You already have the stack. We run the ads and the measurement.',
+    points: [
+      'Account and pixel hygiene',
+      'Campaign build and optimization',
+      'Budget pacing and creative rotation',
+      'Attribution you can explain',
+    ],
+  },
 ] as const
 
 export const marqueeItems = [

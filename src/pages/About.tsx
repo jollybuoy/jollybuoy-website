@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import PageHero from '../components/PageHero'
-import { values, company } from '../data/content'
+import { values, company, work } from '../data/content'
 
 export default function About() {
   return (
@@ -27,6 +27,7 @@ export default function About() {
               is based in Toronto, with 24/7 remote support for clients everywhere we operate.
             </p>
             <p className="muted">{company.line}</p>
+            <p className="location-line">{company.location}</p>
           </div>
         </div>
       </section>
@@ -43,6 +44,31 @@ export default function About() {
                 <p className="muted">{value.body}</p>
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+      <section>
+        <div className="shell">
+          <div className="section-head">
+            <p className="kicker">Work</p>
+            <h2>Proof lives in the products we run.</h2>
+            <p className="muted">
+              We do not invent case-study metrics. Open Ticxnova, Cedar Trade, or RAMS Chess.
+            </p>
+          </div>
+          <div className="grid-3">
+            {work.map((item) => (
+              <article className="card" key={item.slug} style={{ padding: 24 }}>
+                <p className="kicker">{item.kind}</p>
+                <h3>{item.name}</h3>
+                <p className="muted">{item.summary}</p>
+              </article>
+            ))}
+          </div>
+          <div className="hero-actions">
+            <Link className="btn btn-ghost" to="/work">
+              All work
+            </Link>
           </div>
         </div>
       </section>

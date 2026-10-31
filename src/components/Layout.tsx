@@ -7,6 +7,7 @@ const titles: Record<string, string> = {
   '/': 'JollyBuoy Tech — Ideas · Solutions · Growth · Impact',
   '/products': 'Products — JollyBuoy Tech',
   '/services': 'Services — JollyBuoy Tech',
+  '/work': 'Work — JollyBuoy Tech',
   '/about': 'About — JollyBuoy Tech',
   '/careers': 'Careers — JollyBuoy Tech',
   '/contact': 'Contact — JollyBuoy Tech',

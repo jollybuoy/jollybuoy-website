@@ -2,7 +2,7 @@ import { lazy, Suspense, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowUpRight, Cpu, Megaphone, Shield } from 'lucide-react'
 import ProductCard from '../components/ProductCard'
-import { products, services, company, marqueeItems } from '../data/content'
+import { products, services, company, marqueeItems, work } from '../data/content'
 
 const HeroCanvas = lazy(() => import('../components/HeroCanvas'))
 
@@ -30,6 +30,7 @@ export default function Home() {
               engineer the stack and we put it in front of the market. {company.tagline}.
             </p>
             <p className="muted">{company.line}</p>
+            <p className="location-line">{company.location}</p>
             <div className="hero-actions">
               <Link className="btn btn-primary" to="/services">
                 Explore services
@@ -123,6 +124,34 @@ export default function Home() {
             <Link className="btn btn-ghost" to="/services">
               Full service list
             </Link>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div className="shell">
+          <div className="section-head">
+            <p className="kicker">Work</p>
+            <h2>Proof is the software we run.</h2>
+            <p className="muted">
+              No invented ROI. These are live products we own — open them, click around, judge the
+              craft.
+            </p>
+          </div>
+          <div className="grid-3">
+            {work.map((item) => (
+              <article className="card" key={item.slug}>
+                <span className="status">{item.kind}</span>
+                <img src={item.image} alt="" />
+                <div className="card-body">
+                  <h3>{item.name}</h3>
+                  <p className="muted">{item.summary}</p>
+                  <Link className="btn btn-ghost" to="/work">
+                    See the work
+                  </Link>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>

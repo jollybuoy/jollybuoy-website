@@ -18,7 +18,7 @@ export default function Navbar() {
     <header className={scrolled ? 'nav scrolled' : 'nav'}>
       <div className="shell nav-inner">
         <Link to="/" className="brand" onClick={() => setOpen(false)}>
-          <img src="/logo.png" alt="JollyBuoy Tech" />
+          <img className="mark" src="/logo-mark.png" alt="JollyBuoy Tech" />
         </Link>
         <nav className="nav-links" aria-label="Primary">
           {navLinks.map((link) => (
